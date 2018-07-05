@@ -34,4 +34,10 @@ echo $date->format('jS \o\f F Y H:i:s');
 // 5th of July 2018 H:i:s
 ```
 
+Another possibility would be to use it like this:
+
+```php
+$date = new Date('last wednesday of june 2018');
+echo $date->format('d. m. Y');
+// 27. 06. 2018
 

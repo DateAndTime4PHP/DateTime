@@ -18,13 +18,24 @@ class IntegrationTest extends TestCase
     {
         $date = new Date('2018-07-05');
 
-        $this->assertEquals(
+        self::assertEquals(
             '05. 07. 2018',
             $date->format('d. m. Y')
         );
-        $this->assertEquals(
+        self::assertEquals(
             '5th of July 2018 H:i:s',
             $date->format('jS \o\f F Y H:i:s')
+        );
+    }
+
+    public function testThatUsageExample2WorksAsAdvertised()
+    {
+        $date = new Date('last wednesday of june 2018');
+
+        self::assertEquals(
+            '27. 06. 2018',
+            $date->format('d. m. Y')
+
         );
     }
 }
