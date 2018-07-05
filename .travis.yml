@@ -1,0 +1,34 @@
+# Travic-CI-Config file for Manero
+#
+sudo: false
+language: php
+
+php:
+ - 7.2
+ - nightly
+
+env:
+ - DEPS=latest
+
+matrix:
+  fast_finish : true
+  allow_failures:
+      - php: nightly
+
+stages:
+  - check
+  - test
+  - coverage
+
+before_install:
+  - travis_retry composer self-update
+  - if [[ $TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
+
+install:
+  - if [[ $DEPS == 'latest' ]]; then travis_retry composer update $COMPOSER_ARGS ; fi
+  - if [[ $DEPS == 'lowest' ]]; then travis_retry composer update --prefer-lowest --prefer-stable $COMPOSER_ARGS ; fi
+  - travis_retry composer install $COMPOSER_ARGS
+  - composer show --installed
+
+script:
+  - composer test
