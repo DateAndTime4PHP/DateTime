@@ -38,4 +38,30 @@ class IntegrationTest extends TestCase
 
         );
     }
+
+    public function testThatUsageExample3WorksAsAdvertised()
+    {
+        $date1 = new Date('2018-07-05');
+        $date2 = new Date('2020-07-05');
+        $interval = $date1->diff($date2);
+
+        self::assertEquals(
+            '731 0 0',
+            $interval->format('%d %m %y')
+        );
+
+    }
+
+    public function testThatUsageExample4WorksAsAdvertised()
+    {
+        $time = new \DateTime\Time('12:23:34');
+        self::assertEquals(
+            '12:23:34',
+            $time->format('H:i:s')
+        );
+        self::assertEquals(
+            'jS of F Y 12:23:34',
+            $time->format('jS \o\f F Y H:i:s')
+        );
+    }
 }

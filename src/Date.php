@@ -9,7 +9,6 @@
 
 namespace DateTime;
 
-use DateInterval;
 use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
@@ -45,7 +44,7 @@ class Date
     public function add(DateInterval $interval) : Date
     {
         $self = clone($this);
-        $self->datetime->add($this->sanitizeInterval($interval));
+        $self->datetime = $this->datetime->add($interval->getDateTimeInterval());
 
         return $self;
     }
@@ -53,7 +52,7 @@ class Date
     public function sub(DateInterval $interval) : Date
     {
         $self = clone($this);
-        $self->datetime = $this->datetime->sub($this->sanitizeInterval($interval));
+        $self->datetime = $this->datetime->sub($interval->getDateTimeInterval());
 
         return $self;
     }
@@ -69,9 +68,9 @@ class Date
 
     public function diff(Date $date) : DateInterval
     {
-        $interval = $this->datetime->diff($date->datetime);
-
-        return $this->sanitizeInterval($interval);
+        return DateInterval::fromDateTimeInterval(
+            $this->datetime->diff($date->datetime)
+        );
     }
 
     public static function fromDateTimeInterface(DateTimeInterface $datetime)
@@ -92,17 +91,6 @@ class Date
     public function getDay() : int
     {
         return $this->datetime->format('d');
-    }
-
-    private function sanitizeInterval(DateInterval $interval) : DateInterval
-    {
-        $myInterval = clone($interval);
-        $myInterval->h = 0;
-        $myInterval->i = 0;
-        $myInterval->s = 0;
-        $myInterval->f = 0;
-
-        return $myInterval;
     }
 
     private function sanitizeFormatString(string $format) : string
