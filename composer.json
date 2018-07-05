@@ -1,0 +1,32 @@
+{
+    "name": "datetime/datetime",
+    "description": "A libary to handle dates and times separately from one another.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andreas Heigl",
+            "email": "andreas@heigl.org"
+        }
+    ],
+    "require": {
+        "php" : "^7.2"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "DateTime\\" : "src/"
+        }
+    },
+    "autoload-dev" : {
+        "psr-4" : {
+            "DateTimeTest\\" : "tests/"
+        }
+    },
+    "config" : {
+        "sort-packages": true
+    },
+    "require-dev": {
+        "mockery/mockery": "^1.1",
+        "phpunit/phpunit": "^7.2"
+    }
+}
