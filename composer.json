@@ -47,8 +47,7 @@
   "extra": {
     "tools": {
       "phpcs": {
-        "url": "https://api.getlatestassets.com/github/squizlabs/PHP_CodeSniffer/phpcs.phar?version=^3.2",
-        "sign-url": "https://api.getlatestassets.com/github/squizlabs/PHP_CodeSniffer/phpcs.phar.asc?version=^3.2"
+        "url": "https://api.getlatestassets.com/github/squizlabs/PHP_CodeSniffer/phpcs.phar?version=^3.2"
       },
       "security-checker": {
         "url": "http://get.sensiolabs.org/security-checker.phar",
