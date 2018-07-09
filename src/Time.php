@@ -12,6 +12,7 @@ declare(strict_types = 1);
 namespace DateTime;
 
 use DateTimeImmutable;
+use DateTimeInterface;
 use DateTimeZone;
 
 class Time
@@ -22,7 +23,7 @@ class Time
     {
         $tempdate = new DateTimeImmutable($time);
         $this->datetime = new DateTimeImmutable(
-            '1970-01-01 ' . $tempdate->format('H:i:s'),
+            '1970-01-01 ' . $tempdate->format('H:i:s.u'),
             new DateTimeZone('UTC')
         );
     }
@@ -35,7 +36,7 @@ class Time
         return $self;
     }
 
-    public function sub(DateInterval $interval) : Time
+    public function sub(TimeInterval $interval) : Time
     {
         $self = clone($this);
         $self->datetime = $this->datetime->sub($interval->getDateTimeInterval());
@@ -59,11 +60,11 @@ class Time
 
     public static function fromDateTimeInterface(DateTimeInterface $datetime)
     {
-        return new self($datetime->format('H:i:s.f'));
+        return new self($datetime->format('H:i:s.u'));
     }
 
     private function sanitizeFormatString(string $format) : string
     {
-        return preg_replace('/(?<!\\\\)([dDjlNSwzWFmMntLoYy])/', '\\\\$1', $format);
+        return preg_replace('/(?<!\\\\)([rceIOPTZUdDjlNSwzWFmMntLoYy])/', '\\\\$1', $format);
     }
 }
