@@ -37,8 +37,12 @@
     "cs-check": "./vendor/bin/phpcs.phar",
     "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
     "post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
-    "post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
-
+    "post-update-cmd": "Tooly\\ScriptHandler::installPharTools",
+    "upload-coverage" : [
+      "curl -o coveralls -L https://api.getlatestassets.com/github/php-coveralls/php-coveralls/php-coveralls.phar?version=^2.0",
+      "chmod 755 coveralls",
+      "./coveralls -v"
+    ]
   },
   "extra": {
     "tools": {

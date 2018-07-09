@@ -2,6 +2,12 @@
 
 A libary to handle dates and times separately from one another.
 
+[![Latest Stable Version](https://poser.pugx.org/datetime/datetime/v/stable)](https://packagist.org/packages/datetime/datetime)
+[![License](https://poser.pugx.org/datetime/datetime/license)](https://packagist.org/packages/datetime/datetime)
+[![Build Status](https://travis-ci.com/DateAndTime4PHP/DateTime.svg?branch=master)](https://travis-ci.com/DateAndTime4PHP/DateTime)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/DateAndTime4PHP/DateTime/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/DateAndTime4PHP/DateTime/?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/DateAndTime4PHP/DateTime/badge.svg?branch=master)](https://coveralls.io/github/DateAndTime4PHP/DateTime?branch=master)
+
 ## Background
 
 So far all the libraries around that help handling Dates and Times all extend
