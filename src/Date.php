@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types = 1);
+
 /*
  * Copyright (c) DateTime-Contributors
  * 
@@ -9,6 +11,7 @@
 
 namespace DateTime;
 
+use DateTime\Exception\NotYetImplemented;
 use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
@@ -59,6 +62,7 @@ class Date
 
     public function modify(string $modification) : Date
     {
+        throw new NotYetImplemented('"modify" is not yet implemented');
         // TODO Remove all time-information from modification-string
         $self = clone($this);
         $self->datetime = $this->datetime->modify($modification);
@@ -80,17 +84,17 @@ class Date
 
     public function getYear() : int
     {
-        return $this->datetime->format('Y');
+        return (int) $this->datetime->format('Y');
     }
 
     public function getMonth() : int
     {
-        return $this->datetime->format('m');
+        return (int) $this->datetime->format('n');
     }
 
     public function getDay() : int
     {
-        return $this->datetime->format('d');
+        return (int) $this->datetime->format('j');
     }
 
     private function sanitizeFormatString(string $format) : string
