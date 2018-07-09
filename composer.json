@@ -29,16 +29,12 @@
     "tm/tooly-composer-script": "^1.2"
   },
   "scripts" : {
-    "test" : [
-      "phpunit --colors=always"
-    ],
+    "test" : "phpunit --colors=always",
     "check": [
         "@cs-check",
-        "@test",
-        "@analyze"
+        "@test"
     ],
     "cs-check": "./vendor/bin/phpcs.phar",
-    "cs-fix": "./vendor/bin/phpcbf.phar",
     "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
     "post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
     "post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
