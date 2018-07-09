@@ -25,11 +25,35 @@
   },
   "require-dev": {
     "mockery/mockery": "^1.1",
-    "phpunit/phpunit": "^7.2"
+    "phpunit/phpunit": "^7.2",
+    "tm/tooly-composer-script": "^1.2"
   },
   "scripts" : {
     "test" : [
-      "phpunit"
-    ]
+      "phpunit --colors=always"
+    ],
+    "check": [
+        "@cs-check",
+        "@test",
+        "@analyze"
+    ],
+    "cs-check": "./vendor/bin/phpcs.phar",
+    "cs-fix": "./vendor/bin/phpcbf.phar",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml",
+    "post-install-cmd": "Tooly\\ScriptHandler::installPharTools",
+    "post-update-cmd": "Tooly\\ScriptHandler::installPharTools"
+
+  },
+  "extra": {
+    "tools": {
+      "phpcs": {
+        "url": "https://api.getlatestassets.com/github/squizlabs/PHP_CodeSniffer/phpcs.phar?version=^3.2",
+        "sign-url": "https://api.getlatestassets.com/github/squizlabs/PHP_CodeSniffer/phpcs.phar.asc?version=^3.2"
+      },
+      "security-checker": {
+        "url": "http://get.sensiolabs.org/security-checker.phar",
+        "force-replace": true
+      }
+    }
   }
 }

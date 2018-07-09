@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 /*
  * Copyright (c) DateTime-Contributors
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -34,7 +34,12 @@ class Date
             $tempDate->format('Y-m-d') . 'T12:00:00.0',
             new DateTimeZone('UTC')
         );
-        $this->datetime = $this->datetime->setTime(12,00,00,0);
+        $this->datetime = $this->datetime->setTime(
+            12,
+            00,
+            00,
+            0
+        );
     }
 
     public function format(string $format) : string

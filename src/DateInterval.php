@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 /*
  * Copyright (c) DateTime-Contributors
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -38,9 +38,8 @@ class DateInterval
 
     public static function fromDateTimeInterval(DateTimeInterval $interval) : DateInterval
     {
-        
         $string = 'P';
-        
+
         if ($interval->days) {
             $string .= $interval->days . 'D';
         } else {
