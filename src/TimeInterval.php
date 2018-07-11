@@ -54,6 +54,4 @@ class TimeInterval
 
         return $this->interval->format($format);
     }
-
-
 }
