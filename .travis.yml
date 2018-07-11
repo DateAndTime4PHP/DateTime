@@ -31,8 +31,8 @@ jobs:
     php: 7.2
     script: skip
     after_script:
-    -  curl -o coveralls -L https://api.getlatestassets.com/github/php-coveralls/php-coveralls/php-coveralls.phar?version=^2.0,
-    - chmod 755 coveralls,
+    - curl -o coveralls -L https://api.getlatestassets.com/github/php-coveralls/php-coveralls/php-coveralls.phar?version=^2.0
+    - chmod 755 coveralls
     - composer test-coverage
     - ./coveralls -v
 
