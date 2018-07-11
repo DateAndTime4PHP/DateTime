@@ -29,6 +29,8 @@ jobs:
   - stage: coverage
     if: branch = master AND type = push
     php: 7.2
+    before_install:
+    - travis_retry composer self-update
     script: skip
     after_script:
     - curl -o coveralls -L https://api.getlatestassets.com/github/php-coveralls/php-coveralls/php-coveralls.phar?version=^2.0
@@ -38,7 +40,7 @@ jobs:
 
 before_install:
   - travis_retry composer self-update
-  - if [[ $TEST_COVERAGE != 'true' ]]; then phpenv config-rm xdebug.ini || return 0 ; fi
+  - phpenv config-rm xdebug.ini || return 0
 
 install:
   - travis_retry composer update $COMPOSER_ARGS
