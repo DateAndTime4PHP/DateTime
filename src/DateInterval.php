@@ -28,6 +28,8 @@ class DateInterval
 
     public function format(string $format) : string
     {
+        $format = preg_replace('/(?<!%)(%H|%h|%I|%i|%S|%s|%F|%f)/', '%$1', $format);
+
         return $this->interval->format($format);
     }
 

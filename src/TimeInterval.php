@@ -47,4 +47,13 @@ class TimeInterval
 
         return new self($string);
     }
+
+    public function format(string $format) : string
+    {
+        $format = preg_replace('/(?<!%)(%Y|%y|%M|%m|%D|%d|%a)/', '%$1', $format);
+
+        return $this->interval->format($format);
+    }
+
+
 }
