@@ -2,7 +2,7 @@
 
 /*
  * Copyright (c) DateTime-Contributors
- * 
+ *
  * Licensed under the MIT License. See LICENSE.md file in the project root
  * for full license information.
  */
@@ -79,7 +79,7 @@ abstract class Timezone
         return DateTimeZone::listAbbreviations();
     }
 
-    public static function listIdentifiers(int $what = self::ALL, string $country = NULL) : array
+    public static function listIdentifiers(int $what = self::ALL, string $country = null) : array
     {
         return DateTimeZone::listIdentifiers($what, $country);
     }
